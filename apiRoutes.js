@@ -1,4 +1,4 @@
-var notesData = require("./../../../db/db");
+var notesData = require("./db/db");
 
 module.exports = function(app) {
 

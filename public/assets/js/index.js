@@ -1,3 +1,4 @@
+console.log("index.js ran");
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
@@ -13,6 +14,7 @@ var getNotes = function() {
     url: "/api/notes",
     method: "GET"
   });
+  
 };
 
 // A function for saving a note to the db
