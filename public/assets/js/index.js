@@ -1,9 +1,10 @@
-console.log("index.js ran");
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
+var counter = 0;
+
 
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
@@ -51,17 +52,30 @@ var renderActiveNote = function() {
   }
 };
 
+
+
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
+
+  function counterIncrement(){
+    counter += 1;
+    return counter;
+  }
+
+  console.log("This is your counter " + counter);
+
   var newNote = {
+    id: counterIncrement(),
     title: $noteTitle.val(),
-    text: $noteText.val()
+    text: $noteText.val(),
   };
+
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
     renderActiveNote();
   });
+
 };
 
 // Delete the clicked note
